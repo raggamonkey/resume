@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Yilano Heuvels</title>
+  <meta name="description"
+    content="CV en portfolio van Yilano Heuvels, IT-enthousiast met ervaring in cloud, homelab en cybersecurity.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dark-mode-toggle {
+      transition: all 0.3s ease;
+    }
+
+    .dark-mode-toggle:hover {
+      transform: scale(1.1) rotate(180deg);
+    }
+
+    .skill-card {
+      animation: slideInUp 0.5s ease-out forwards;
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+    }
+
+    .section-animate {
+      animation: slideInLeft 0.6s ease-out forwards;
+    }
+
+    .timeline-item {
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(10px);
+    }
+
+    .floating-action {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .pulse-ring {
+      animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.8);
+      }
+
+      80%,
+      100% {
+        opacity: 0;
+        transform: scale(1.2);
+      }
+    }
+
+    .tab-button {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .tab-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .tab-button.active {
+      background: linear-gradient(45deg, #6366f1, #8b5cf6);
+      color: white;
+    }
+
+    .loading-bar {
+      height: 3px;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6);
+      position: relative;
+      overflow: hidden;
+      border-radius: 3px;
+    }
+
+    .loading-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        left: -100%;
+      }
+
+      100% {
+        left: 100%;
+      }
+    }
+
+    .interactive-element:hover {
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      60%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-10px);
+      }
+
+      80% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .modal-backdrop {
+      backdrop-filter: blur(4px);
+      transition: all 0.3s ease;
+    }
+
+    .modal-content {
+      animation: modalSlideIn 0.3s ease-out;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .modal-close {
+      transition: all 0.2s ease;
+    }
+
+    .modal-close:hover {
+      transform: scale(1.1);
+      color: #ef4444;
+    }
+
+    /* Prevent body scroll when modal is open */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Disable text selection globally */
+    body {
+      user-select: none;
+      -webkit-user-select: none;
+      /* Safari */
+      -ms-user-select: none;
+      /* IE 10+ */
+      cursor: default;
+    }
+
+    /* Keep text selection + text cursor for inputs and textareas */
+    input,
+    textarea {
+      user-select: text;
+      cursor: text;
+    }
+
+    /* Keep pointer cursor for interactive stuff */
+    a,
+    button,
+    .modal,
+    .interactive-element {
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 min-h-screen py-1 px-1 sm:px-1 transition-colors duration-300">
+  <div
+    class="max-w-3xl mx-auto bg-white dark:bg-gray-800 shadow-2xl rounded-xl overflow-hidden transition-colors duration-300">
+    <!-- Header Section with accent color -->
+    <div
+      class="bg-gradient-to-r from-blue-600 to-indigo-700 dark:from-blue-700 dark:to-indigo-800 text-white p-6 sm:p-8 relative">
+      <!-- Dark Mode Toggle -->
+      <button id="darkModeToggle"
+        class="absolute top-4 right-4 p-2 rounded-full bg-white/20 hover:bg-white/30 dark-mode-toggle">
+        <i id="darkModeIcon" class="fas fa-moon text-white"></i>
+      </button>
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+        <div class="section-animate pr-8">
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">Yilano Cédric Heuvels</h1>
+          <p class="mt-2 text-blue-100 font-medium text-sm sm:text-base">Medewerker DekaMarkt
+          </p>
+          <div class="loading-bar mt-3 w-24 sm:w-32"></div>
+        </div>
+        <div class="mt-4 lg:mt-0">
+          <div class="flex items-center space-x-2 mb-2 text-sm sm:text-base">
+            <i class="fas fa-phone-alt w-5 text-center text-blue-200"></i>
+            <a href="tel:0633704178" class="hover:underline">06-33704178</a>
+          </div>
+          <div class="flex items-center space-x-2 mb-2 text-sm sm:text-base">
+            <i class="fas fa-envelope w-5 text-center text-blue-200"></i>
+            <a href="mailto:yilanoheuvels@gmail.com" class="hover:underline break-all">yilanoheuvels@gmail.com</a>
+          </div>
+          <div class="flex items-center space-x-2 text-sm sm:text-base">
+            <i class="fas fa-map-marker-alt w-5 text-center text-blue-200"></i>
+            <span>Hippolytushoef</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Personal Information Section -->
+    <div
+      class="bg-gray-50 dark:bg-gray-700 p-6 border-b border-gray-200 dark:border-gray-600 transition-colors duration-300">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 dark:text-gray-300">
+        <div>
+          <p class="flex items-center mt-2">
+            <i class="fas fa-calendar-alt text-indigo-500 dark:text-indigo-400 w-6"></i>
+            <span class="font-medium mr-2">Geboortedatum:</span> 03-07-2010
+          </p>
+          <p class="flex items-center mt-2">
+            <i class="fas fa-map-pin text-indigo-500 dark:text-indigo-400 w-6"></i>
+            <span class="font-medium mr-2">Geboorteplaats:</span> Den Helder
+          </p>
+        </div>
+        <div>
+          <p class="flex items-center">
+            <i class="fas fa-flag text-indigo-500 dark:text-indigo-400 w-6"></i>
+            <span class="font-medium mr-2">Nationaliteit:</span> <span>Nederlands</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Enhanced Tabs Navigation -->
+    <div
+      class="bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600 transition-colors duration-300">
+      <div class="flex overflow-x-auto" role="tablist" aria-label="Hoofdnavigatie">
+        <button id="tab-cv" class="tab-button active px-6 py-3 rounded-t-lg mx-1 font-medium" role="tab"
+          aria-selected="true" aria-controls="content-cv" tabindex="0">
+          <i class="fas fa-user mr-2"></i><span>CV</span></button>
+        <button id="tab-certificaten"
+          class="tab-button px-6 py-3 rounded-t-lg mx-1 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium"
+          role="tab" aria-selected="false" aria-controls="content-certificaten" tabindex="-1">
+          <i class="fas fa-certificate mr-2"></i><span>Certificaten</span></button>
+        <button id="tab-contact"
+          class="tab-button px-6 py-3 rounded-t-lg mx-1 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium"
+          role="tab" aria-selected="false" aria-controls="content-contact" tabindex="-1">
+          <i class="fas fa-envelope mr-2"></i><span>Contact</span></button>
+      </div>
+    </div>
+    <!-- CV Content Tab -->
+    <div id="content-cv" class="tab-content active p-8 dark:text-gray-200 transition-colors duration-300"
+      role="tabpanel" aria-labelledby="tab-cv" tabindex="0">
+      <!-- Work Experience Section -->
+      <section class="mb-8">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-briefcase text-xl text-indigo-600 dark:text-indigo-400 mr-3"></i>
+          <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Werkervaring
+          </h2>
+        </div>
+        <div class="ml-8 border-l-2 border-indigo-200 dark:border-indigo-500 pl-4">
+          <!-- DekaMarkt Job -->
+          <div class="mb-6 timeline-item">
+            <div class="flex flex-col sm:flex-row sm:items-center mb-2">
+              <div class="w-full sm:w-24 text-indigo-600 dark:text-indigo-400 font-semibold mb-1 sm:mb-0">Mei 2025 -
+                heden</div>
+              <div class="font-bold text-gray-800 dark:text-gray-100">Medewerker DekaMarkt
+              </div>
+            </div>
+          </div>
+          <!-- Smultaria Job -->
+          <div class="mb-4 timeline-item">
+            <div class="flex flex-col sm:flex-row sm:items-center mb-2">
+              <div class="w-full sm:w-24 text-indigo-600 dark:text-indigo-400 font-semibold mb-1 sm:mb-0">Juli 2024 -
+                April 2025</div>
+              <div class="font-bold text-gray-800 dark:text-gray-100">Medewerker Snackbar Smultaria</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Education Section -->
+      <section class="mb-8">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-graduation-cap text-xl text-indigo-600 dark:text-indigo-400 mr-3"></i>
+          <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Opleiding</h2>
+        </div>
+        <div class="ml-8 border-l-2 border-indigo-200 dark:border-indigo-500 pl-4">
+          <div class="mb-4 timeline-item">
+            <div class="flex items-center">
+              <div class="w-24 text-indigo-600 dark:text-indigo-400 font-semibold">2022 - heden</div>
+              <div>
+                <div class="font-bold text-gray-800 dark:text-gray-100">Theoretische Leerweg (TL)</div>
+                <div class="text-gray-600 dark:text-gray-400">Tabor College d'Ampte</div>
+                <div class="text-gray-600 dark:text-gray-400">Sector: Economie en Ondernemen
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Personal Qualities Section -->
+      <section class="mb-8">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-user-check text-xl text-indigo-600 dark:text-indigo-400 mr-3"></i>
+          <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Eigenschappen</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 ml-8">
+          <div
+            class="skill-card cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 px-4 py-3 rounded-lg border border-green-100 dark:border-green-700 shadow-sm flex items-center"
+            data-modal="klantvriendelijk" onclick="openModal('modal-klantvriendelijk')">
+            <i class="fas fa-user-friends text-green-500 dark:text-green-400 mr-2"></i>
+            <span>Klantvriendelijk</span>
+          </div>
+          <div
+            class="skill-card cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 px-4 py-3 rounded-lg border border-blue-100 dark:border-blue-700 shadow-sm flex items-center"
+            data-modal="teamspeler" onclick="openModal('modal-teamspeler')">
+            <i class="fas fa-users text-blue-500 dark:text-blue-400 mr-2"></i>
+            <span>Teamspeler</span>
+          </div>
+          <div
+            class="skill-card cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/30 dark:to-indigo-900/30 px-4 py-3 rounded-lg border border-purple-100 dark:border-purple-700 shadow-sm flex items-center"
+            data-modal="flexibel" onclick="openModal('modal-flexibel')">
+            <i class="fas fa-sync-alt text-purple-500 dark:text-purple-400 mr-2"></i>
+            <span>Flexibel</span>
+          </div>
+          <div
+            class="skill-card cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/30 dark:to-red-900/30 px-4 py-3 rounded-lg border border-orange-100 dark:border-orange-700 shadow-sm flex items-center"
+            data-modal="stressbestendig" onclick="openModal('modal-stressbestendig')">
+            <i class="fas fa-balance-scale text-orange-500 dark:text-orange-400 mr-2"></i>
+            <span>Stressbestendig</span>
+          </div>
+          <div
+            class="skill-card cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/30 dark:to-orange-900/30 px-4 py-3 rounded-lg border border-yellow-100 dark:border-yellow-700 shadow-sm flex items-center"
+            data-modal="punctueel" onclick="openModal('modal-punctueel')">
+            <i class="fas fa-clock text-yellow-500 dark:text-yellow-400 mr-2"></i>
+            <span>Punctueel</span>
+          </div>
+          <div
+            class="skill-card cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-teal-50 to-green-50 dark:from-teal-900/30 dark:to-green-900/30 px-4 py-3 rounded-lg border border-teal-100 dark:border-teal-700 shadow-sm flex items-center"
+            data-modal="betrouwbaar" onclick="openModal('modal-betrouwbaar')">
+            <i class="fas fa-handshake text-teal-500 dark:text-teal-400 mr-2"></i>
+            <span>Betrouwbaar</span>
+          </div>
+        </div>
+      </section>
+      <!-- Enhanced Skills Section with class -->
+      <section class="mb-8">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-star text-xl text-indigo-600 dark:text-indigo-400 mr-3"></i>
+          <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Technische Vaardigheden</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ml-8">
+          <div
+            class="skill-card bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/30 dark:to-blue-900/30 px-4 py-3 rounded-lg border border-indigo-100 dark:border-indigo-700 shadow-sm flex items-center">
+            <i class="fas fa-pump-soap text-indigo-500 dark:text-indigo-400 mr-2"></i>
+            <span>Hygiënisch werken</span>
+          </div>
+          <div
+            class="skill-card bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/30 dark:to-blue-900/30 px-4 py-3 rounded-lg border border-indigo-100 dark:border-indigo-700 shadow-sm flex items-center">
+            <i class="fas fa-cloud text-indigo-500 dark:text-indigo-400 mr-2"></i>
+            <span>Microsoft Azure Basiskennis</span>
+          </div>
+          <div
+            class="skill-card bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 px-4 py-3 rounded-lg border border-green-100 dark:border-green-700 shadow-sm flex items-center">
+            <i class="fas fa-server text-green-500 dark:text-green-400 mr-2"></i>
+            <span>Homelab Management</span>
+          </div>
+          <div
+            class="skill-card bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/30 dark:to-indigo-900/30 px-4 py-3 rounded-lg border border-purple-100 dark:border-purple-700 shadow-sm flex items-center">
+            <i class="fas fa-docker text-purple-500 dark:text-purple-400 mr-2"></i>
+            <span>Docker Containerization</span>
+          </div>
+        </div>
+      </section>
+      <!-- Languages Section -->
+      <section>
+        <div class="flex items-center mb-4">
+          <i class="fas fa-language text-xl text-indigo-600 dark:text-indigo-400 mr-3"></i>
+          <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Talen</h2>
+        </div>
+        <div class="ml-8 space-y-3">
+          <div>
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">Nederlands</span>
+              <span class="text-indigo-600 dark:text-indigo-400">Moedertaal</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+              <div class="bg-indigo-600 dark:bg-indigo-500 h-2 rounded-full loading-bar" style="width: 100%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">Engels</span>
+              <span class="text-indigo-600 dark:text-indigo-400">B2 niveau</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+              <div class="bg-indigo-600 dark:bg-indigo-500 h-2 rounded-full loading-bar" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Certificaten Tab Content -->
+    <div id="content-certificaten" class="tab-content p-8 dark:text-gray-200 transition-colors duration-300"
+      role="tabpanel" aria-labelledby="tab-certificaten" tabindex="0">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">Mijn
+          Certificaten</h2>
+        <!-- Certificaten Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Certificate 1 - AZ-900 -->
+          <div
+            class="skill-card cursor-pointer hover:scale-105 transition-transform bg-white dark:bg-gray-700 rounded-lg shadow-md border border-indigo-100 dark:border-indigo-700 overflow-hidden"
+            data-modal="az-900" onclick="openModal('modal-az900')">
+            <div class="bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-3 text-white font-bold">
+              <i class="fas fa-certificate mr-2"></i>Azure Fundamentals (AZ-900)
+            </div>
+            <div class="p-4">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 dark:text-gray-300">Uitgegeven door:</span>
+                <span class="font-medium">Microsoft</span>
+              </div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 dark:text-gray-300">Datum behaald:</span>
+                <span class="font-medium">21 mei 2025</span>
+              </div>
+              <div class="mt-3">
+                <p class="text-gray-700 dark:text-gray-300">Officieel Microsoft
+                  certificaat voor basiskennis van
+                  cloudconcepten, Azure-services, Azure-beveiliging, privacy, compliance en Azure-prijsmodellen.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Certificate 2 - SC-900 -->
+          <div
+            class="skill-card cursor-pointer hover:scale-105 transition-transform bg-white dark:bg-gray-700 rounded-lg shadow-md border border-green-100 dark:border-green-700 overflow-hidden"
+            data-modal="sc-900" onclick="openModal('modal-sc900')">
+            <div class="bg-gradient-to-r from-green-600 to-emerald-600 px-4 py-3 text-white font-bold">
+              <i class="fas fa-shield-alt mr-2"></i>Microsoft Security, Compliance, and Identity Fundamentals (SC-900)
+            </div>
+            <div class="p-4">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 dark:text-gray-300">Uitgegeven door:</span>
+                <span class="font-medium">Microsoft</span>
+              </div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 dark:text-gray-300">Datum behaald:</span>
+                <span class="font-medium">23 mei 2025</span>
+              </div>
+              <div class="mt-3">
+                <p class="text-gray-700 dark:text-gray-300">Microsoft certificaat voor
+                  fundamentele kennis van
+                  beveiligings-, compliance- en identiteitsconcepten binnen Microsoft-oplossingen.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Certificaat 3 CCST Networking-->
+          <div
+            class="skill-card cursor-pointer hover:scale-105 transition-transform bg-white dark:bg-gray-700 rounded-lg shadow-md border border-amber-100 dark:border-amber-700 overflow-hidden"
+            data-modal="CCST-Net" onclick="openModal('modal-CCST-Net')">
+            <div class="bg-gradient-to-r from-orange-600 to-amber-600 px-4 py-3 text-white font-bold">
+              <i class="fas fa-shield-alt mr-2"></i>Cisco Certified Support Technician (CCST)
+            </div>
+            <div class="p-4">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 dark:text-gray-300">Uitgegeven door:</span>
+                <span class="font-medium">Cisco</span>
+              </div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 dark:text-gray-300">Datum behaald:</span>
+                <span class="font-medium">1 oktober 2025</span>
+              </div>
+              <div class="mt-3">
+                <p class="text-gray-700 dark:text-gray-300">Officieel Cisco-certifaat
+                  voor basiskennis van netwerken, inclusief netwerkmodellen, IP-adressering, subnetting, routering,
+                  switching, VLAN's, en basis netwerkbeveiliging.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Ruimte voor toekomstige certificaten -->
+        <div class="mt-8">
+          <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3">
+            Geplande cursussen en certificaten</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Microsoft Azure Security -->
+            <div
+              class="cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-lg p-4 border border-red-100 dark:border-red-700"
+              onclick="openModal('modal-az500')">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-shield-alt text-red-500 mr-2"></i>
+                <h4 class="font-semibold text-gray-800 dark:text-gray-100">AZ-500</h4>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Microsoft Azure
+                Security Technologies</p>
+            </div>
+            <!-- Microsoft Security Operations -->
+            <div
+              class="cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-lg p-4 border border-purple-100 dark:border-purple-700"
+              onclick="openModal('modal-sc200')">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-search text-purple-500 mr-2"></i>
+                <h4 class="font-semibold text-gray-800 dark:text-gray-100">SC-200</h4>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Microsoft Security
+                Operations Analyst</p>
+            </div>
+            <!-- Microsoft Identity and Access -->
+            <div
+              class="cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg p-4 border border-blue-100 dark:border-blue-700"
+              onclick="openModal('modal-sc300')">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-key text-blue-500 mr-2"></i>
+                <h4 class="font-semibold text-gray-800 dark:text-gray-100">SC-300</h4>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Microsoft Identity
+                and Access Administrator</p>
+            </div>
+            <!-- CompTIA A+ -->
+            <div
+              class="cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg p-4 border border-green-100 dark:border-green-700"
+              onclick="openModal('modal-comptia-aplus')">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-desktop text-green-500 mr-2"></i>
+                <h4 class="font-semibold text-gray-800 dark:text-gray-100">CompTIA A+</h4>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">IT Fundamentals &
+                Hardware Support</p>
+            </div>
+            <!-- CompTIA Security+ -->
+            <div
+              class="cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 rounded-lg p-4 border border-red-100 dark:border-red-700"
+              onclick="openModal('modal-comptia-security')">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-lock text-red-500 mr-2"></i>
+                <h4 class="font-semibold text-gray-800 dark:text-gray-100">CompTIA Security+</h4>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Cybersecurity
+                Fundamentals</p>
+            </div>
+            <!-- CompTIA Network+ -->
+            <div
+              class="cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 rounded-lg p-4 border border-orange-100 dark:border-orange-700"
+              onclick="openModal('modal-comptia-network')">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-network-wired text-orange-500 mr-2"></i>
+                <h4 class="font-semibold text-gray-800 dark:text-gray-100">CompTIA Network+</h4>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Networking
+                Fundamentals</p>
+            </div>
+            <!-- CCNA -->
+            <div
+              class="cursor-pointer hover:scale-105 transition-transform bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg p-4 border border-indigo-100 dark:border-indigo-700"
+              onclick="openModal('modal-ccna')">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-server text-indigo-500 mr-2"></i>
+                <h4 class="font-semibold text-gray-800 dark:text-gray-100">CCNA</h4>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Cisco Certified
+                Network Associate</p>
+            </div>
+          </div>
+          <!-- <div class="mt-8">
+            <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3" data-translate="currentlyLearning">
+              Momenteel aan het leren</h3>
+            <div
+              class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg p-4 border border-indigo-100 dark:border-indigo-700">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <i class="fas fa-book-open text-indigo-500 mr-3 text-xl"></i>
+                  <div>
+                    <p class="font-semibold text-gray-800 dark:text-gray-100">CCST Networking</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" data-translate="targetDetail">Cisco Certified
+                      Support Technician - Target: Q3 2025</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs text-gray-500 dark:text-gray-400 mb-1" data-translate="progress">Progress</div>
+                  <div class="w-24 bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                    <div class="bg-indigo-600 dark:bg-indigo-500 h-2 rounded-full" style="width: 100%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="mt-6 bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600">
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
+              <i class="fas fa-info-circle text-blue-500 mr-2"></i><span>Geplande
+                certificeringstraject gericht op
+                cybersecurity en netwerktechnologieën om mijn technische expertise verder uit te breiden.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- New Contact Tab -->
+    <div id="content-contact" class="tab-content p-8 dark:text-gray-200 transition-colors duration-300" role="tabpanel"
+      aria-labelledby="tab-contact" tabindex="0">
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">Contact
+        & Beschikbaarheid</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Contact Information -->
+        <div
+          class="skill-card bg-white dark:bg-gray-700 rounded-lg shadow-md border border-indigo-100 dark:border-indigo-700 p-6">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+            <i class="fas fa-address-card text-indigo-500 mr-2"></i><span>Contactgegevens</span>
+          </h3>
+          <div class="space-y-3">
+            <div class="flex items-center interactive-element">
+              <i class="fas fa-phone text-indigo-500 w-6"></i>
+              <a href="tel:0633704178" class="ml-3 hover:underline">06-33704178</a>
+            </div>
+            <div class="flex items-center interactive-element">
+              <i class="fas fa-envelope text-indigo-500 w-6"></i>
+              <a href="mailto:yilanoheuvels@gmail.com" class="ml-3 hover:underline">yilanoheuvels@gmail.com</a>
+            </div>
+            <div class="flex items-center interactive-element">
+              <i class="fas fa-map-marker-alt text-indigo-500 w-6"></i>
+              <span class="ml-3">Hippolytushoef, Nederland</span>
+            </div>
+            <div class="flex items-center interactive-element">
+              <i class="fas fa-birthday-cake text-indigo-500 w-6"></i>
+              <span class="ml-3">03 juli 2010 (15 jaar)</span>
+            </div>
+          </div>
+        </div>
+        <!-- Availability -->
+        <div
+          class="skill-card bg-white dark:bg-gray-700 rounded-lg shadow-md border border-green-100 dark:border-green-700 p-6">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+            <i class="fas fa-calendar-check text-green-500 mr-2"></i><span>Beschikbaarheid</span>
+          </h3>
+          <div class="space-y-3">
+            <div class="flex items-center">
+              <i class="fas fa-clock text-green-500 w-6"></i>
+              <span class="ml-3">Weekenden beschikbaar</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-graduation-cap text-green-500 w-6"></i>
+              <span class="ml-3">Na schooltijd (doordeweeks)</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-sun text-green-500 w-6"></i>
+              <span class="ml-3">Schoolvakanties</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-handshake text-green-500 w-6"></i>
+              <span class="ml-3">Flexibel in werkuren</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div
+      class="bg-gray-50 dark:bg-gray-700 px-8 py-4 text-center text-gray-500 dark:text-gray-400 text-sm border-t border-gray-200 dark:border-gray-600 transition-colors duration-300">
+      <p><span>CV bijgewerkt op</span> <time datetime="2025-10-01">1 oktober 2025</time>
+      </p>
+    </div>
+  </div>
+  <!-- Modals -->
+  <div id="modal-backdrop" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 modal-backdrop">
+    <div id="modal-container" class="fixed inset-0 flex items-center justify-center p-4">
+      <!-- All your existing modals stay exactly the same -->
+      <!-- Eigenschappen Modals -->
+      <div id="modal-klantvriendelijk"
+        class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-user-friends text-green-500 dark:text-green-400 mr-2"></i>
+            <span>Klantvriendelijk</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <p class="mb-3">Als klantvriendelijke medewerker zet ik altijd de klant
+            centraal. Ik luister aandachtig naar hun behoeften en help hen met een positieve houding.</p>
+          <ul class="space-y-2 text-sm">
+            <li>• Vriendelijke en behulpzame benadering</li>
+            <li>• Actief luisteren naar klantenwensen</li>
+            <li>• Probleemoplossend denken</li>
+            <li>• Geduldig omgaan met verschillende situaties</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-teamspeler" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-users text-blue-500 dark:text-blue-400 mr-2"></i>
+            <span>Teamspeler</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <p class="mb-3">Ik werk graag samen met collega's om gemeenschappelijke doelen
+            te bereiken. Samenwerking en ondersteuning staan bij mij centraal.</p>
+          <ul class="space-y-2 text-sm">
+            <li>• Effectieve samenwerking met collega's</li>
+            <li>• Bereidheid om anderen te helpen</li>
+            <li>• Open communicatie binnen het team</li>
+            <li>• Bijdragen aan een positieve werksfeer</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-flexibel" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-sync-alt text-purple-500 dark:text-purple-400 mr-2"></i>
+            <span>Flexibel</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <p class="mb-3">Ik pas me gemakkelijk aan veranderende omstandigheden aan en ben
+            bereid om verschillende taken op me te nemen.</p>
+          <ul class="space-y-2 text-sm">
+            <li>• Aanpassen aan wisselende werkroosters</li>
+            <li>• Verschillende taken en verantwoordelijkheden</li>
+            <li>• Snel schakelen tussen activiteiten</li>
+            <li>• Open staan voor nieuwe uitdagingen</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-stressbestendig" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-balance-scale text-orange-500 dark:text-orange-400 mr-2"></i>
+            <span>Stressbestendig</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <p class="mb-3">Ook in drukke perioden behoud ik mijn rust en blijf ik
+            effectief werken. Ik kan goed omgaan met werkdruk.</p>
+          <ul class="space-y-2 text-sm">
+            <li>• Kalm blijven tijdens drukke momenten</li>
+            <li>• Prioriteiten stellen onder tijdsdruk</li>
+            <li>• Gestructureerd werken</li>
+            <li>• Positieve mindset behouden</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-punctueel" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-clock text-yellow-500 dark:text-yellow-400 mr-2"></i>
+            <span>Punctueel</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <p class="mb-3">Ik ben altijd op tijd en houd me aan afgesproken tijden.
+            Betrouwbaarheid in planning is voor mij belangrijk.</p>
+          <ul class="space-y-2 text-sm">
+            <li>• Altijd op tijd voor werk en afspraken</li>
+            <li>• Respecteren van deadlines</li>
+            <li>• Goede planning en organisatie</li>
+            <li>• Verantwoordelijkheidsgevoel</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-betrouwbaar" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-handshake text-teal-500 dark:text-teal-400 mr-2"></i>
+            <span>Betrouwbaar</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <p class="mb-3">Collega's en klanten kunnen op mij rekenen. Ik sta voor mijn
+            woord en volg afspraken altijd na.</p>
+          <ul class="space-y-2 text-sm">
+            <li>• Nakomen van beloftes en afspraken</li>
+            <li>• Verantwoordelijkheid nemen</li>
+            <li>• Consistent in prestaties</li>
+            <li>• Vertrouwen opbouwen met anderen</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Certificate Modals -->
+      <div id="modal-az900" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-certificate text-indigo-500 mr-2"></i>
+            Azure Fundamentals (AZ-900)
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <div class="mb-4 bg-indigo-50 dark:bg-indigo-900/30 p-3 rounded-lg">
+            <p class="text-sm"><strong>Behaald:</strong> 21 mei 2025 | <strong
+                data-translate="issuerLabel">Uitgever:</strong> Microsoft</p>
+          </div>
+          <p class="mb-3">Dit certificaat toont mijn fundamentele kennis van cloud
+            computing en Microsoft Azure services.</p>
+          <h4 class="font-semibold mb-2">Behandelde onderwerpen:</h4>
+          <ul class="space-y-1 text-sm">
+            <li>• Cloud computing concepten</li>
+            <li>• Azure architecture en services</li>
+            <li>• Azure beveiliging, privacy en compliance</li>
+            <li>• Azure pricing en support</li>
+          </ul>
+          <div class="mt-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <p class="text-xs text-gray-500 dark:text-gray-400">
+              Dit certificaat legt de basis voor mijn verdere ontwikkeling in cloud technologieën.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-sc900" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+            <span>Security, Compliance & Identity Fundamentals (SC-900)</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <div class="mb-4 bg-green-50 dark:bg-green-900/30 p-3 rounded-lg">
+            <p class="text-sm"><strong>Behaald:</strong> 23 mei 2025 | <strong>Uitgever:</strong> Microsoft</p>
+          </div>
+          <p class="mb-3">Dit certificaat demonstreert mijn basiskennis van
+            cybersecurity, compliance en identity management binnen Microsoft ecosysteem.</p>
+          <h4 class="font-semibold mb-2">Behandelde onderwerpen:</h4>
+          <ul class="space-y-1 text-sm">
+            <li>• Security concepten en methodologieën</li>
+            <li>• Microsoft identity en access management</li>
+            <li>• Microsoft security solutions</li>
+            <li>• Microsoft compliance solutions</li>
+          </ul>
+          <div class="mt-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <p class="text-xs text-gray-500 dark:text-gray-400">
+              Deze kennis vormt de basis voor mijn interesse in cybersecurity en identiteitsbeheer.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-CCST-Net" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-network-wired text-orange-500 mr-2"></i>
+            <span>Cisco Certified Support Technician</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <div class="mb-4 bg-orange-50 dark:bg-orange-900/30 p-3 rounded-lg">
+            <p class="text-sm"><strong>Behaald:</strong> 01 oktober 2025 | <strong>Uitgever:</strong> Cisco</p>
+          </div>
+          <p class="mb-3">Dit certificaat demonstreert mijn basiskennis van
+            netwerken, waaronder fundamentele concepten, protocollen en beveiliging binnen moderne IT-infrastructuren.
+          </p>
+          <h4 class="font-semibold mb-2">Behandelde onderwerpen:</h4>
+          <ul class="space-y-1 text-sm">
+            <li>• Netwerkmodellen en protocollen (OSI & TCP/IP)</li>
+            <li>• IP-adressering en subnetting</li>
+            <li>• Routering en switching</li>
+            <li>• VLAN’s en draadloze netwerken</li>
+            <li>• Basis netwerkbeveiliging</li>
+          </ul>
+          <div class="mt-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <p class="text-xs text-gray-500 dark:text-gray-400">
+              Deze kennis vormt de basis voor mijn verdere ontwikkeling richting netwerkbeheer en cybersecurity.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Planned Certification Modals -->
+      <div id="modal-az500" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-shield-alt text-red-500 mr-2"></i>
+            <span>AZ-500 Azure Security Technologies</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <div class="mb-4 bg-red-50 dark:bg-red-900/30 p-3 rounded-lg">
+            <p class="text-sm"><strong>Geplanned:</strong> <span>Toekomst</span> | <strong>Vereisten:</strong> AZ-900
+              (✓)</p>
+          </div>
+          <p class="mb-3">Geavanceerde Azure security certificering voor het
+            implementeren van beveiligingscontroles en bedreigingsbeveiliging.</p>
+          <h4 class="font-semibold mb-2">Voorgenomen studiegebieden:</h4>
+          <ul class="space-y-1 text-sm">
+            <li>• Azure identity en access management</li>
+            <li>• Platform protection</li>
+            <li>• Security operations</li>
+            <li>• Data en application beveiliging</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-sc200" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-search text-purple-500 mr-2"></i>
+            <span>SC-200 Security Operations Analyst</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <div class="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg">
+            <p class="text-sm"><strong>Geplanned:</strong> <span>Toekomst</span> | <strong>Vereisten:</strong> SC-900
+              (✓)</p>
+          </div>
+          <p class="mb-3">Deze certificering richt zich op het gebruik van Microsoft
+            security tools om bedreigingen te onderzoeken en te reageren.</p>
+          <h4 class="font-semibold mb-2">Kernvaardigheden:</h4>
+          <ul class="space-y-1 text-sm">
+            <li>• Microsoft Sentinel voor threat hunting</li>
+            <li>• Microsoft Defender voor endpoint beveiliging</li>
+            <li>• Incident response en forensics</li>
+            <li>• Threat intelligence analyse</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-sc300" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-key text-blue-500 mr-2"></i>
+            <span>SC-300 Identity and Access Administrator</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <div class="mb-4 bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg">
+            <p class="text-sm"><strong>Geplanned:</strong> <span>Toekomst</span> | <strong>Vereisten:</strong> SC-900
+              (✓)</p>
+          </div>
+          <p class="mb-3">Specialisatie in het beheren van identiteiten en
+            toegangsrechten binnen Microsoft Azure omgeving.</p>
+          <h4 class="font-semibold mb-2">Expertisegebieden:</h4>
+          <ul class="space-y-1 text-sm">
+            <li>• Azure Active Directory management</li>
+            <li>• Multi-factor authentication implementatie</li>
+            <li>• Conditional access policies</li>
+            <li>• Identity governance en lifecycle</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-comptia-aplus" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-desktop text-green-500 mr-2"></i>
+            <span>CompTIA A+</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <div class="mb-4 bg-green-50 dark:bg-green-900/30 p-3 rounded-lg">
+            <p class="text-sm"><strong>Geplanned:</strong> <span>Toekomst</span> | <strong>Type:</strong> <span>IT
+                Fundamentals</span></p>
+          </div>
+          <p class="mb-3">De basis certificering voor IT support professionals,
+            behandelt hardware en software troubleshooting.</p>
+          <h4 class="font-semibold mb-2">Kernonderwerpen:</h4>
+          <ul class="space-y-1 text-sm">
+            <li>• Hardware installatie en configuratie</li>
+            <li>• Operating systems (Windows, macOS, Linux)</li>
+            <li>• Mobile devices en networking</li>
+            <li>• Security en troubleshooting</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-comptia-network" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-network-wired text-orange-500 mr-2"></i>
+            <span>CompTIA Network+</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <div class="mb-4 bg-orange-50 dark:bg-orange-900/30 p-3 rounded-lg">
+            <p class="text-sm"><strong>Geplanned:</strong> <span>Toekomst</span> | <strong>Voorbereiding voor:</strong>
+              CCNA</p>
+          </div>
+          <p class="mb-3">Vendor-neutral networking certificering die fundamentele
+            netwerkconcepten en -technologieën behandelt.</p>
+          <h4 class="font-semibold mb-2">Studiegebieden:</h4>
+          <ul class="space-y-1 text-sm">
+            <li>• Networking protocols en services</li>
+            <li>• Network implementation en troubleshooting</li>
+            <li>• Network security fundamentals</li>
+            <li>• Network architecture en topologieën</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-comptia-security"
+        class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-lock text-red-500 mr-2"></i>
+            <span>CompTIA Security+</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <div class="mb-4 bg-red-50 dark:bg-red-900/30 p-3 rounded-lg">
+            <p class="text-sm"><strong>Geplanned:</strong> <span>Toekomst</span> | <strong>Type:</strong>
+              <span>Vendor-neutral cybersecurity</span></p>
+          </div>
+          <p class="mb-3">Een breed erkende certificering die fundamentele
+            cybersecurity vaardigheden en kennis valideert.</p>
+          <h4 class="font-semibold mb-2">Kernonderwerpen:</h4>
+          <ul class="space-y-1 text-sm">
+            <li>• Attacks, threats en vulnerabilities</li>
+            <li>• Architecture en design</li>
+            <li>• Implementation</li>
+            <li>• Operations en incident response</li>
+            <li>• Governance, risk en compliance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="modal-ccna" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+            <i class="fas fa-server text-indigo-500 mr-2"></i>
+            <span>CCNA (Cisco Certified Network Associate)</span>
+          </h3>
+          <button class="modal-close text-gray-400 hover:text-gray-600" aria-label="Close">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <div class="mb-4 bg-indigo-50 dark:bg-indigo-900/30 p-3 rounded-lg">
+            <p class="text-sm"><strong>Geplanned:</strong> <span>Toekomst</span> | <strong>Vereisten:</strong>
+              <span>CCST (✓)</span></p>
+          </div>
+          <p class="mb-3">De industrie-standaard certificering voor Cisco networking
+            professionals, bouwt voort op CCST kennis.</p>
+          <h4 class="font-semibold mb-2">Geavanceerde onderwerpen:</h4>
+          <ul class="space-y-1 text-sm">
+            <li>• Advanced routing en switching protocols</li>
+            <li>• Network automation en programmability</li>
+            <li>• Wireless en security implementatie</li>
+            <li>• Enterprise network design</li>
+          </ul>
+          <div class="mt-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <p class="text-xs text-gray-500 dark:text-gray-400">
+              De CCNA opent deuren naar enterprise networking rollen en is een sterke basis voor verdere Cisco
+              specialisaties.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Dark mode functionality with system preference detection
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeIcon = document.getElementById('darkModeIcon');
+    const html = document.documentElement;
+    // Check for saved theme preference or default to system preference
+    const getThemePreference = () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) return savedTheme;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    const currentTheme = getThemePreference();
+    if (currentTheme === 'dark') {
+      html.classList.add('dark');
+      darkModeIcon.classList.remove('fa-moon');
+      darkModeIcon.classList.add('fa-sun');
+    }
+    darkModeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      if (html.classList.contains('dark')) {
+        darkModeIcon.classList.remove('fa-moon');
+        darkModeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        darkModeIcon.classList.remove('fa-sun');
+        darkModeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+    // Enhanced tab functionality
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabButtons.forEach((button, idx) => {
+        button.addEventListener('click', () => {
+          // Add loading state
+          button.classList.add('opacity-50', 'pointer-events-none');
+          setTimeout(() => {
+            // Deactivate all tabs
+            tabButtons.forEach((btn, i) => {
+              btn.classList.remove('active', 'opacity-50', 'pointer-events-none');
+              btn.classList.add('text-gray-600', 'dark:text-gray-400', 'hover:text-indigo-600', 'dark:hover:text-indigo-400');
+              btn.setAttribute('aria-selected', 'false');
+              btn.setAttribute('tabindex', '-1');
+            });
+            tabContents.forEach(content => content.classList.remove('active'));
+            // Activate clicked tab
+            button.classList.add('active');
+            button.classList.remove('text-gray-600', 'dark:text-gray-400', 'hover:text-indigo-600', 'dark:hover:text-indigo-400', 'opacity-50', 'pointer-events-none');
+            button.setAttribute('aria-selected', 'true');
+            button.setAttribute('tabindex', '0');
+            // Show corresponding content
+            const contentId = 'content-' + button.id.split('-')[1];
+            document.getElementById(contentId).classList.add('active');
+            // Scroll to top of content
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          }, 150);
+        });
+      });
+      // Remember last active tab
+      const lastTab = localStorage.getItem('lastActiveTab');
+      if (lastTab && document.getElementById(lastTab)) {
+        document.getElementById(lastTab).click();
+      }
+      // Save active tab on click
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          localStorage.setItem('lastActiveTab', button.id);
+        });
+      });
+      // Animate skill cards on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = Math.random() * 0.5 + 's';
+            entry.target.classList.add('section-animate');
+          }
+        });
+      }, observerOptions);
+      // Observe skill cards
+      document.querySelectorAll('.skill-card').forEach((card) => {
+        observer.observe(card);
+      });
+    });
+    // Add interactive hover effects
+    document.addEventListener('DOMContentLoaded', function () {
+      const interactiveElements = document.querySelectorAll('.interactive-element');
+      interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', function () {
+          this.style.transform = 'scale(1.02)';
+        });
+        element.addEventListener('mouseleave', function () {
+          this.style.transform = 'scale(1)';
+        });
+      });
+    });
+    // Keyboard navigation for tabs
+    document.addEventListener('keydown', function (e) {
+      if (e.target.classList.contains('tab-button')) {
+        const tabButtons = Array.from(document.querySelectorAll('.tab-button'));
+        const currentIndex = tabButtons.indexOf(e.target);
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          const nextIndex = (currentIndex + 1) % tabButtons.length;
+          tabButtons[nextIndex].click();
+          tabButtons[nextIndex].focus();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const prevIndex = (currentIndex - 1 + tabButtons.length) % tabButtons.length;
+          tabButtons[prevIndex].click();
+          tabButtons[prevIndex].focus();
+        }
+      }
+    });
+    // Smooth scroll for all internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    // Modal functionality
+    function openModal(modalId) {
+      const backdrop = document.getElementById('modal-backdrop');
+      const modal = document.getElementById(modalId);
+
+      if (backdrop && modal) {
+        // Show backdrop and modal
+        backdrop.classList.remove('hidden');
+        modal.classList.remove('hidden');
+
+        // Prevent body scroll
+        document.body.classList.add('modal-open');
+
+        // Add modal-content class for animation
+        modal.classList.add('modal-content')
+      }
+    }
+    function closeModal() {
+      const backdrop = document.getElementById('modal-backdrop');
+      const openModals = document.querySelectorAll('#modal-container > div:not(.hidden)');
+
+      // Hide backdrop
+      backdrop.classList.add('hidden');
+
+      // Hide all open modals
+      openModals.forEach(modal => {
+        modal.classList.add('hidden');
+        modal.classList.remove('modal-content');
+      });
+
+      // Restore body scroll
+      document.body.classList.remove('modal-open');
+    }
+
+    // Event listeners for modal functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      // Close modal when clicking backdrop
+      document.getElementById('modal-backdrop').addEventListener('click', function (e) {
+        if (e.target == this) {
+          closeModal();
+        }
+      });
+
+      // Close modal when clicking close buttons
+      document.querySelectorAll('.modal-close').forEach(button => {
+        button.addEventListener('click', closeModal);
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key == 'Escape') {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
