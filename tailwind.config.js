@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html"], // adjust this if your HTML files are in subfolders
+  darkMode: 'class', // generate dark: variants used by your page
+  content: ["./index.html", "./src/**/*.{html,js}"], // include all html/js so classes are not purged
   theme: {
     extend: {},
   },
   plugins: [],
-
 }
